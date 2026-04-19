@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" agent="Codex">
+  <diagram id="dfd2" name="DFD 2 - Прием и медкарта (improved)">
+    <mxGraphModel dx="2012" dy="1170" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="20" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Пациент" vertex="1">
+          <mxGeometry height="80" width="140" x="10" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Медик" vertex="1">
+          <mxGeometry height="90" width="170" x="450" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="22" parent="1" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="EMR/медкарта (защищенное хранилище)" vertex="1">
+          <mxGeometry height="90" width="320" x="990" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="23" parent="1" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Архив и резервная зона" vertex="1">
+          <mxGeometry height="90" width="230" x="1650" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="IAM/Админ безопасности" vertex="1">
+          <mxGeometry height="70" width="220" x="1655" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Защищаемые данные:&#xa;- анамнез, диагнозы, назначения&#xa;- результаты осмотра и вложения&#xa;- идентификаторы пациента" vertex="1">
+          <mxGeometry height="120" width="520" x="550" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="26" edge="1" parent="1" source="20" style="endArrow=classic;html=1;" target="21" value="create: анамнез, жалобы&#xa;[TAG: MED.SECRET + PID.HIGH]&#xa;[минимизация + согласие на обработку]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="27" edge="1" parent="1" source="21" style="endArrow=classic;html=1;" target="22" value="create/update: медкарта&#xa;[псевдонимизация patient_id + AES-256 + версионирование]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="28" edge="1" parent="1" source="22" style="endArrow=classic;html=1;" target="23" value="transfer/store&#xa;[шифрование ключами KMS + контроль ретеншн]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="29" edge="1" parent="1" source="24" style="endArrow=classic;html=1;" target="23" value="read: RBAC/ABAC + MFA + аудит чтений/экспорта">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="212" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Тегирование:&lt;br&gt;MED.SECRET, PID.HIGH, RETENTION.STRICT&lt;br&gt;owner=MedicalOfficer" vertex="1">
+          <mxGeometry height="120" width="360" x="1110" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="213" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d4edda;strokeColor=#2e7d32;" value="Инструменты/меры: EMR с field-level ACL, KMS/HSM, DLP, SIEM, backup immutability" vertex="1">
+          <mxGeometry height="120" width="520" x="750" y="480" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

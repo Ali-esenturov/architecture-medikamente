@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" agent="Codex">
+  <diagram id="dfd3" name="DFD 3 - Оплата и бухучет">
+    <mxGraphModel dx="2926" dy="585" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="40" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Пациент" vertex="1">
+          <mxGeometry height="80" width="140" x="-10" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="41" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Кассир" vertex="1">
+          <mxGeometry height="90" width="160" x="250" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="42" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="ККМ" vertex="1">
+          <mxGeometry height="70" width="140" x="460" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="43" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="1С: Бухгалтерия (файловый режим)" vertex="1">
+          <mxGeometry height="90" width="270" x="590" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="44" parent="1" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Excel учёт оплат" vertex="1">
+          <mxGeometry height="80" width="180" x="440" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="45" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Бухгалтерия" vertex="1">
+          <mxGeometry height="90" width="170" x="990" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="46" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Неучтённые конфиденциальные данные:&#xa;- детали платежа пациента в Excel-копиях&#xa;- история возвратов/льгот без ограничений доступа&#xa;- привязка медуслуги к личности в незащищенных выгрузках" vertex="1">
+          <mxGeometry height="120" width="730" x="250" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="47" edge="1" parent="1" source="40" style="endArrow=classic;html=1;" target="41" value="create: оплата">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="48" edge="1" parent="1" source="41" style="endArrow=classic;html=1;" target="42" value="transfer TCP/IP + OLE">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="49" edge="1" parent="1" source="42" style="endArrow=classic;html=1;" target="43" value="create: фискальные данные">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="50" edge="1" parent="1" source="41" style="endArrow=classic;html=1;" target="44" value="duplicate update">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="51" edge="1" parent="1" source="43" style="endArrow=classic;html=1;" target="45" value="read/posting">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
