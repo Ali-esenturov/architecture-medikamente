@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram id="dfd1" name="DFD 1 - Запись пациента">
+    <mxGraphModel dx="3468" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Пациент" vertex="1">
+          <mxGeometry height="80" width="140" x="-110" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Ресепшен (Excel журнал)" vertex="1">
+          <mxGeometry height="90" width="220" x="250" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Outlook / почта" vertex="1">
+          <mxGeometry height="70" width="170" x="500" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Общий диск&#xa;(Excel/PDF/JPG)" vertex="1">
+          <mxGeometry height="90" width="220" x="670" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Медик" vertex="1">
+          <mxGeometry height="80" width="140" x="1110" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Неучтённые конфиденциальные данные:&lt;br&gt;- адрес прописки&lt;br&gt;- место работы/учёбы&lt;div&gt;- хронические заболевания&lt;br&gt;- свободные заметки о жалобах&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="510" x="250" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="8" edge="1" parent="1" source="2" style="endArrow=classic;html=1;rounded=0;" target="3" value="create: ФИО, ДР, телефон, email">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9" edge="1" parent="1" source="3" style="endArrow=classic;html=1;rounded=0;" target="4" value="transfer: подтверждение записи">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="10" edge="1" parent="1" source="3" style="endArrow=classic;html=1;rounded=0;" target="5" value="create/update: журнал приёма">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="11" edge="1" parent="1" source="5" style="endArrow=classic;html=1;rounded=0;" target="6" value="read: список записей">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

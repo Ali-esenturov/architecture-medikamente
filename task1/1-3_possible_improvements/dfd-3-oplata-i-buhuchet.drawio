@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram id="dfd3" name="DFD 3 - Оплата и бухучет (improved)">
+    <mxGraphModel dx="1677" dy="975" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="40" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Пациент" vertex="1">
+          <mxGeometry height="80" width="140" x="30" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="41" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Кассир" vertex="1">
+          <mxGeometry height="90" width="160" x="480" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="42" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="ККМ" vertex="1">
+          <mxGeometry height="70" width="140" x="830" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="43" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="1С: Бухгалтерия (целевой мастер-источник)" vertex="1">
+          <mxGeometry height="90" width="340" x="1030" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="44" parent="1" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Защищенный отчетный витринный слой" vertex="1">
+          <mxGeometry height="80" width="280" x="760" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="45" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Бухгалтерия" vertex="1">
+          <mxGeometry height="90" width="170" x="1610" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="46" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Защищаемые данные:&#xa;- платежи и фискальные операции&#xa;- связка пациент-услуга-платеж&#xa;- чеки, возвраты, льготы" vertex="1">
+          <mxGeometry height="80" width="600" x="590" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="47" edge="1" parent="1" source="40" style="endArrow=classic;html=1;" target="41" value="create: оплата&#xa;[TAG: FIN.MEDIUM + PID.HIGH]&#xa;[обфускация платежных реквизитов в UI]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="48" edge="1" parent="1" source="41" style="endArrow=classic;html=1;" target="42" value="transfer TCP/IP + OLE&#xa;[mTLS + подпись событий ККМ]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="49" edge="1" parent="1" source="42" style="endArrow=classic;html=1;" target="43" value="create: фискальные данные&#xa;[шифрование at-rest + контроль целостности]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="50" edge="1" parent="1" source="41" style="endArrow=classic;html=1;" target="44" value="secure export only&#xa;[обезличивание для аналитики + policy-based доступ]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="51" edge="1" parent="1" source="43" style="endArrow=classic;html=1;" target="45" value="read/posting&lt;br&gt;[SoD + аудит + алерты]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="312" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Тегирование:&#xa;FIN.MEDIUM, PID.HIGH, ACCOUNTING.CRITICAL&#xa;owner=FinanceDirector" vertex="1">
+          <mxGeometry height="80" width="390" x="1230" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="313" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d4edda;strokeColor=#2e7d32;" value="Инструменты/меры: токенизация, DLP, DB encryption, SIEM/UEBA, сверка ККМ-1С" vertex="1">
+          <mxGeometry height="80" width="490" x="1230" y="430" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
